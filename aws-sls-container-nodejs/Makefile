@@ -17,7 +17,7 @@ deploy:
 	sls deploy
 
 invoke:
-	sls invoke
+	sls invoke -f hello
 
 # HELPERS
 dockerAuth:
