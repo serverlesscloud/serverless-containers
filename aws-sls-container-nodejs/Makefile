@@ -1,10 +1,7 @@
-
 VERSION ?= latest
 
-# I use Singapore region becuase Lambda Containers isn't out in Sydney yet 
-ECR_REGION ?= ap-southeast-1
+ECR_REGION ?= ap-southeast-2
 ECR_ACCOUNT ?= 279158781928
-ECR_PROFILE ?= ServerlessCloud-SharedServices-Admin
 
 ECR_URL = $(ECR_ACCOUNT).dkr.ecr.$(ECR_REGION).amazonaws.com
 ECR_IMAGE = $(ECR_URL)/aws-lambda-container-nodejs:$(VERSION)
@@ -14,7 +11,13 @@ build: dockerAuth
 	docker push $(ECR_IMAGE)
 
 run:
-	docker run -rm -p 9000:8080 serverlesscloud/aws-lambda-container-nodejs:$(VERSION)
+	docker run --rm -p 9000:8080 $(ECR_IMAGE)
+
+deploy:
+	sls deploy
+
+invoke:
+	sls invoke
 
 # HELPERS
 dockerAuth:

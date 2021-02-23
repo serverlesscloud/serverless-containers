@@ -1,0 +1,10 @@
+version = 0.1
+[dev]
+[dev.deploy]
+[dev.deploy.parameters]
+stack_name = "Dev-SAMContainerJava"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1n9se8hs3c58e"
+s3_prefix = "Dev-SAMContainerJava"
+region = "ap-southeast-2"
+capabilities = "CAPABILITY_IAM"
+image_repositories = ["HelloWorldFunction=279158781928.dkr.ecr.ap-southeast-2.amazonaws.com/aws-sam-container-java"]
