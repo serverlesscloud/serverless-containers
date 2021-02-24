@@ -22,6 +22,12 @@ deploy:
 		--capabilities CAPABILITY_IAM \
 		--image-repository $(ECR_URL)/$(ECR_REPO)
 
+invokeLocal:
+	sam local invoke
+
+runLocal:
+	sam local start-api
+	
 # HELPERS
 dockerAuth:
 	aws ecr get-login-password --region $(ECR_REGION) | docker login --username AWS --password-stdin $(ECR_URL)

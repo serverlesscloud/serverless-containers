@@ -10,13 +10,16 @@ build: dockerAuth
 	docker build -t $(ECR_IMAGE) .
 	docker push $(ECR_IMAGE)
 
-run:
-	docker run --rm -p 9000:8080 $(ECR_IMAGE)
-
 deploy:
 	sls deploy
 
-invoke:
+runLocal:
+	docker run --rm -p 9000:8080 $(ECR_IMAGE)
+
+invokeLocal:
+	curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{}'
+
+invokeRemote:
 	sls invoke -f hello
 
 # HELPERS
