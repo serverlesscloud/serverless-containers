@@ -1,5 +1,5 @@
 
-VERSION ?= latest
+VERSION ?= 1.0.0
 ENV ?= Dev
 
 # I use Singapore region becuase Lambda Containers isn't out in Sydney yet 
