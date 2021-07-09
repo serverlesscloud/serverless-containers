@@ -15,7 +15,7 @@ Resources:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
       PackageType: Image
-      ImageUri: 279158781928.dkr.ecr.ap-southeast-2.amazonaws.com/aws-sam-container-go:1.0.0
+      ImageUri: 279158781928.dkr.ecr.ap-southeast-2.amazonaws.com/aws-sam-container-go:1.1.0
       Events:
         CatchAll:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
